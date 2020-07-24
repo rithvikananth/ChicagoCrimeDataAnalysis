@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Home</title>
+    </head>
+    <body style="background-color: beige">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+        <div style=" background-image:url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6233d870-bb62-4bed-b6b5-a856e55827fe/d4ozy89-fefa2193-e726-4341-b9a4-b8d772bc9c59.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzYyMzNkODcwLWJiNjItNGJlZC1iNmI1LWE4NTZlNTU4MjdmZVwvZDRvenk4OS1mZWZhMjE5My1lNzI2LTQzNDEtYjlhNC1iOGQ3NzJiYzljNTkuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.8Zd3FSaZxZxXme3Q5noSWnrgbkwob-7oiWmJWK7rLpc); background-size: 100% 100%" class="font">
+            <br> <br> <br><br>
+            <header><h1 style=" font-size: 30px; color: beige"><center>Chicago Crime Data Analysis and Visualization</center></h1> </header>
+            <br><br><br>
+            <center>
+            <img src="https://www.chicago.gov/content/dam/city/cds/city_seal_clr.png" width = "125px" height="125px">
+            </center>
+            <br><br>
+        </div>
+        <br><br>
+        <center><p style="font-style:italic; font-size: 22px;width: 1200px">In the present world we live in, crimes are inseparable part our lives. In this project we have worked on the richest crime data available for visualisation with an aim to provide meaningful insights on the various crimes taking place in chicago city inorder to increase the safety and decrease the crime rate in the city.
+            </p></center>
+
+        <div>
+        	<center>
+                <table style="font-size: 22px">
+                    <tr>
+                        <td>7,941,283</td>
+                    </tr>
+                    <th>Total Incidents reported</th>
+                     </table>
+                <br>
+
+                <table style="font-size: 22px">
+                      <tr>
+                        <td>2,249,419</td>
+                        <td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;945,109</td>
+                    </tr>
+                    <th>Arrests</th>
+                    <th><center>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Domestic Violence's</center></th>
+                </table>
+                <style>
+                th,td{padding: 5px; text-align: center; font-style: italic;font-size: 12}
+
+            </style>
+            </center>
+	</div>
+        <br> <br> <br> <br>
+       <center> <a href="#dashboard" class="myButton">Go to Dashboard</a></center>
+        <br> <br><br> <br> <br> <br> <br> <br>
+    </body>
+    <footer>&copy; CS526-Group 7</footer>
+    <br>  <br>  <br>
+    <nav>
+    <section id="dashboard">
+        <head>
+            <meta charset='utf-8'>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="styles.css">
+            <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+            <script src="script.js"></script>
+            <title>CSS MenuMaker</title>
+        </head>
+<body style="background-color: beige">
+<div id='cssmenu' >
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <style>
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#cssmenu:after,
+#cssmenu > ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+#cssmenu {
+  width: auto;
+  border-bottom: 3px solid darksalmon;
+  font-family: Raleway, sans-serif;
+  line-height: 1;
+}
+#cssmenu ul {
+  background: beige;
+}
+#cssmenu > ul > li {
+  float: left;
+}
+#cssmenu.align-center > ul {
+  font-size: 0;
+  text-align: center;
+}
+#cssmenu.align-center > ul > li {
+  display: inline-block;
+  float: none;
+}
+#cssmenu.align-right > ul > li {
+  float: right;
+}
+#cssmenu.align-right > ul > li > a {
+  margin-right: 0;
+  margin-left: -4px;
+}
+#cssmenu > ul > li > a {
+  z-index: 2;
+  padding: 18px 25px 12px 25px;
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #444444;
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  margin-right: -4px;
+}
+#cssmenu > ul > li.active > a,
+#cssmenu > ul > li:hover > a,
+#cssmenu > ul > li > a:hover {
+  color: #ffffff;
+}
+#cssmenu > ul > li > a:after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  width: 100%;
+  height: 120%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  content: "";
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  -webkit-transform: perspective(5px) rotateX(2deg);
+  -webkit-transform-origin: bottom;
+  -moz-transform: perspective(5px) rotateX(2deg);
+  -moz-transform-origin: bottom;
+  transform: perspective(5px) rotateX(2deg);
+  transform-origin: bottom;
+}
+#cssmenu > ul > li.active > a:after,
+#cssmenu > ul > li:hover > a:after,
+#cssmenu > ul > li > a:hover:after {
+  background: darksalmon;
+}
+
+</style>
+<ul style="background: beige">
+    <li class='active'><a href='#dashboard'>Dashboard &emsp;<i class='fas fa-tachometer-alt'></i></a></li>
+   <li><a href="{{ url_for('Stats') }}">District Stats &emsp;<i class='fas fa-chart-bar'></i></a></li>
+   <li><a href="{{ url_for('Domestic') }}">Domestic &emsp;<i class='fas fa-home'></i></a></li>
+   <li ><a href="{{ url_for('Judiciary') }}">Judiciary &emsp;<i class='fas fa-balance-scale'></i></a></li>
+    <li><a href="{{ url_for('Judiciary') }}">DIY &emsp;<i class='fas fa-chalkboard-teacher'></i></a></li>
+</ul>
+</div>
+</body>
+    </section>
+    </nav>
+        <div>
+            <title>Dashboard</title>
+            <center>
+    <body onload="Word_cloud()" style="background-color: beige">
+	<!-- Resources -->
+	<script src="https://www.amcharts.com/lib/4/core.js"></script>
+	<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+	<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+        <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+        <script src="https://www.amcharts.com/lib/4/plugins/wordCloud.js"></script>
+	<script>
+        function Word_cloud(){
+am4core.useTheme(am4themes_animated);
+//console.log(data);
+am4core.ready(function(){
+var chart = am4core.create("chart1", am4plugins_wordCloud.WordCloud);
+// Set up data source
+chart.dataSource.url = "http://127.0.0.1:5000/WordCloud";
+var series = chart.series.push(new am4plugins_wordCloud.WordCloudSeries());
+chart.fontFamily = "Comic Sans MS";
+series.colors = new am4core.ColorSet();
+series.minFontSize = 10;
+series.dataFields.word = "tag";
+series.dataFields.value = "counts";
+series.heatRules.push({
+                    "target": series.labels.template,
+                    "property": "fill",
+                    "min": am4core.color("#0000CC"),
+                    "max": am4core.color("#CC00CC"),
+                    "dataField": "value"
+                });
+series.labels.template.tooltipText = "{word}:\n[bold]{value}[/]";
+});// end am4core.ready()
+
+}
+</script>
+<style>
+#chart1 {
+  width: 1400px;
+  height: 275px;
+}
+
+</style>
+
+
+    <!-- Code for line chart start -->
+                <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.10.3/babel.min.js'></script>
+                <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+                <script src="script.js"></script>
+    <div id = "chartdiv"></div>
+    <div id = "chart2"><svg class="chart2"></svg></div>
+
+    <style>
+.container {
+	width: 1200px;
+	height: 400px;
+
+	background-color: beige;
+
+}
+#chartdiv {
+	display: inline-block;
+	float: right;
+}
+
+#chart2 {
+	display: inline-block;
+	float: left;
+}
+.name {
+    stroke: steelblue;
+    fill: #46b0cb;
+    height: 600;
+    width: 400;
+}
+div.tooltip {
+          position: absolute;
+          text-align: center;
+          width: 80px;
+          height: 14px;
+          padding: 2px;
+          font: 12px sans-serif;
+          background: #fff;
+          border: 0px;
+          pointer-events: none;
+      }
+
+body {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line, 
+.axis1 path,
+.axis1 line {
+  fill: none;
+  stroke: #E6E7E8;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path, .x.axis1 path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke-width: 1.5px;
+}
+
+.legend-box {
+  cursor: pointer;  
+}
+
+#bg {
+  stroke: #E6E7E8;
+  stroke-width: 1px;
+}
+
+.hover-line { 
+  stroke: #E6E7E8;
+  fill: none;
+  stroke-width: 1px;
+  left: 10px;
+  shape-rendering: crispEdges;
+  opacity: 1e-6;
+}
+
+.hover-text {
+  stroke: none;
+  font-size: 25px;
+  font-weight: bold;
+  fill: #000000;
+}
+
+.tooltip {
+  font-weight: normal;
+}
+
+.brush .extent {
+  stroke: #FFF;
+  shape-rendering: crispEdges;
+}
+
+</style>
+<script src="http://d3js.org/d3.v3.js"></script>
+<script>
+    var margin1 = {top: 20, right: 200, bottom: 100, left: 40},
+        margin2 = {top: 450, right: 5, bottom: 20, left: 40},
+        width = 900 - margin1.left - margin1.right,
+        height1 = 500 - margin1.top - margin1.bottom,
+        height2 = 500 - margin2.top - margin2.bottom;
+
+    var parseDate = d3.time.format("%Y-%m-%d").parse;
+    var bisectDate = d3.bisector(function (d) {
+        return d.Date;
+    }).left;
+
+    var xScale = d3.time.scale()
+            .range([0, width]),
+
+        xScale2 = d3.time.scale()
+            .range([0, width]);
+
+    var yScale = d3.scale.linear()
+        .range([height1, 0]);
+
+// 36 colors for Crime types
+    var color = d3.scale.ordinal().range(["#45a760", "#56AE7C", "#64B98C", "#72C39B", "#80CEAA", "#80CCB3", "#7FC9BD", "#7FC7C6", "#7EC4CF", "#7FBBCF", "#7FB1CF", "#80A8CE", "#809ECE", "#8897CE", "#8F90CD", "#9788CD", "#9E81CC", "#AA81C5", "#B681BE", "#C280B7", "#CE80B0", "#D3779F", "#D76D8F", "#DC647E", "#E05A6D", "#E16167", "#E26962", "#E2705C", "#E37756", "#E38457", "#E39158", "#E29D58", "#E2AA59","#FF7F50","#FF4500","#FFD700","#FF8C00","#000000"]);
+
+    var xAxis = d3.svg.axis()
+            .scale(xScale)
+            .orient("bottom"),
+
+        xAxis2 = d3.svg.axis()
+            .scale(xScale2)
+            .orient("bottom");
+
+    var yAxis = d3.svg.axis()
+        .scale(yScale)
+        .orient("left");
+
+    var line = d3.svg.line()
+        .interpolate("basis")
+        .x(function (d) {
+            return xScale(d.Date);
+        })
+        .y(function (d) {
+            return yScale(d.count);
+        })
+        .defined(function (d) {
+            return d.count;
+        });
+
+    var maxY;
+
+    var svg = d3.select("body").append("svg")
+        .attr("width", width + margin1.left + margin1.right)
+        .attr("height", height1 + margin1.top + margin1.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin1.left + "," + margin1.top + ")");
+
+
+    svg.append("rect")
+        .attr("width", width)
+        .attr("height", height1)
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("id", "bg")
+        .style("fill", "beige");
+
+    var context = svg.append("g")
+        .attr("transform", "translate(" + 0 + "," + 410 + ")")
+        .attr("class", "context");
+
+    svg.append("defs")
+        .append("clipPath")
+        .attr("id", "clip")
+        .append("rect")
+        .attr("width", width)
+        .attr("height", height1);
+
+
+    function Map(district) {
+    d3.csv("/static/data/Merged_Prediction.csv", function (error, data1) {
+        var data = data1.filter(function (d) {
+            if (parseFloat(d["District"]) == district) {
+                return d;
+            }
+        })
+        color.domain(d3.keys(data[0]).filter(function (key) {
+            return (key !== "Date") && (key !== "District");
+        }));
+
+        data.forEach(function (d) {
+            d.Date = parseDate(d.Date);
+        });
+
+        var crime_types = color.domain().map(function (crime) {
+
+            return {
+                crime: crime,
+                values: data.map(function (d) {
+                    return {
+                        Date: d.Date,
+                        count: +(d[crime]),
+                    };
+                }),
+                visible: (crime === "ALL CRIMES" ? true : false)
+            };
+        });
+
+        xScale.domain(d3.extent(data, function (d) {
+            return d.Date;
+        }));
+
+        yScale.domain([0, 150]);
+
+        xScale2.domain(xScale.domain());
+
+        //slider
+
+        var brush = d3.svg.brush()
+            .x(xScale2)
+            .on("brush", brushed);
+
+        context.append("g")
+            .attr("class", "x axis1")
+            .attr("transform", "translate(0," + height2 + ")")
+            .call(xAxis2);
+
+        var contextArea = d3.svg.area()
+            .interpolate("monotone")
+            .x(function (d) {
+                return xScale2(d.Date);
+            })
+            .y0(height2)
+            .y1(0);
+
+        context.append("path")
+            .attr("class", "area")
+            .attr("d", contextArea(crime_types[0].values))
+            .attr("fill", "#ac9980");
+
+
+        context.append("g")
+            .attr("class", "x brush")
+            .call(brush)
+            .selectAll("rect")
+            .attr("height", height2)
+            .attr("fill", "#d4ceb5");
+
+        //line graph
+        svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height1 + ")")
+            .call(xAxis);
+
+        svg.append("g")
+            .attr("class", "y axis")
+            .call(yAxis)
+            .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("x", -10)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .text("Crime count");
+
+        var issue = svg.selectAll(".issue")
+            .data(crime_types)
+            .enter().append("g")
+            .attr("class", "issue");
+
+        issue.append("path")
+            .attr("class", "line")
+            .style("pointer-events", "none")
+            .attr("id", function (d) {
+                return "line-" + d.crime.replace(" ", "").replace("/", "");
+            })
+            .attr("d", function (d) {
+                return d.visible ? line(d.values) : null;
+            })
+            .attr("clip-path", "url(#clip)")
+            .style("stroke", function (d) {
+                return color(d.crime);
+            });
+
+        //legend
+        var legendSpace = 450 / crime_types.length;
+
+        issue.append("rect")
+            .attr("width", 10)
+            .attr("height", 10)
+            .attr("x", width + (margin1.right / 3) - 28)
+            .attr("y", function (d, i) {
+                return (legendSpace) + i * (legendSpace) - 8;
+            })
+            .attr("fill", function (d) {
+                return d.visible ? color(d.crime) : "#d4ceb5";
+            })
+            .attr("class", "legend-box")
+
+            .on("click", function (d) {
+                d.visible = !d.visible;
+
+                maxY = MaxY(crime_types);
+                yScale.domain([0, maxY]);
+                svg.select(".y.axis")
+                    .transition()
+                    .call(yAxis);
+
+                issue.select("path")
+                    .transition()
+                    .attr("d", function (d) {
+                        return d.visible ? line(d.values) : null;
+                    })
+
+                issue.select("rect")
+                    .transition()
+                    .attr("fill", function (d) {
+                        return d.visible ? color(d.crime) : "#d4ceb5";
+                    });
+            })
+
+            .on("mouseover", function (d) {
+
+                d3.select(this)
+                    .transition()
+                    .attr("fill", function (d) {
+                        return color(d.crime);
+                    });
+
+                d3.select("#line-" + d.crime.replace(" ", "").replace("/", ""))
+                    .transition()
+                    .style("stroke-width", 2.5);
+            })
+
+            .on("mouseout", function (d) {
+
+                d3.select(this)
+                    .transition()
+                    .attr("fill", function (d) {
+                        return d.visible ? color(d.crime) : "#d4ceb5";
+                    });
+
+                d3.select("#line-" + d.crime.replace(" ", "").replace("/", ""))
+                    .transition()
+                    .style("stroke-width", 1.5);
+            })
+
+        issue.append("text")
+            .attr("x", width + (margin1.right / 3) - 15)
+            .attr("y", function (d, i) {
+                return (legendSpace) + i * (legendSpace);
+            })
+            .text(function (d) {
+                return d.crime;
+            });
+
+        // Hover line
+        var hoverLineGroup = svg.append("g")
+            .attr("class", "hover-line");
+
+        var hoverLine = hoverLineGroup
+            .append("line")
+            .attr("id", "hover-line")
+            .attr("x1", 10).attr("x2", 10)
+            .attr("y1", 0).attr("y2", height1 + 10)
+            .style("pointer-events", "none")
+            .style("opacity", 1e-6);
+
+        var hoverDate = hoverLineGroup
+            .append('text')
+            .attr("class", "hover-text")
+            .attr("y", height1 - (height1 - 40))
+            .attr("x", width - 150)
+            .style("fill", "#E6E7E8");
+
+        var columnNames = d3.keys(data[0])
+            .slice(1);
+
+        var focus = issue.select("g")
+            .data(columnNames)
+            .enter().append("g")
+            .attr("class", "focus");
+
+        focus.append("text")
+            .attr("class", "tooltip")
+            .attr("x", width + 5)
+            .attr("y", function (d, i) {
+                return (legendSpace) + i * (legendSpace);
+            });
+
+        d3.select("#bg")
+            .on("mousemove", mousemove)
+            .on("mouseout", function () {
+                hoverDate
+                    .text(null)
+
+                d3.select("#hover-line")
+                    .style("opacity", 1e-6);
+            });
+
+        function mousemove() {
+            var mouse_x = d3.mouse(this)[0];
+            var graph_x = xScale.invert(mouse_x);
+            var format = d3.time.format('%b %Y');
+            hoverDate.text(format(graph_x));
+
+            d3.select("#hover-line")
+                .attr("x1", mouse_x)
+                .attr("x2", mouse_x)
+                .style("opacity", 1);
+
+            var x0 = xScale.invert(d3.mouse(this)[0]),
+                i = bisectDate(data, x0, 1),
+                d0 = data[i - 1],
+                d1 = data[i],
+                d = x0 - d0.Date > d1.Date - x0 ? d1 : d0;
+
+            focus.select("text").text(function (columnName) {
+                return (d[columnName]);
+            });
+        };
+
+
+        function brushed() {
+
+            xScale.domain(brush.empty() ? xScale2.domain() : brush.extent());
+            svg.select(".x.axis")
+                .transition()
+                .call(xAxis);
+
+            maxY = MaxY(crime_types);
+            yScale.domain([0, maxY]);
+
+            svg.select(".y.axis")
+                .transition()
+                .call(yAxis);
+
+            issue.select("path")
+                .transition()
+                .attr("d", function (d) {
+                    return d.visible ? line(d.values) : null;
+                });
+
+        };
+
+    });
+    }
+
+    function MaxY(data) {
+        var max_y_values = data.map(function (d) {
+            if (d.visible) {
+                return d3.max(d.values, function (value) {
+                    return value.count;
+                })
+            }
+        });
+        return d3.max(max_y_values);
+    }
+
+  //Chicago Heat Map & control point
+d3.json("https://raw.githubusercontent.com/SriKaavya/RandomTemp/master/PolygonDistChicagoGeoJSON.json", function(json) {
+    console.log(json.features);
+    //Width and height
+    var width = 475;
+    var height1 = 400;
+    var center = d3.geo.centroid(json)
+    var scale = 1000;
+    var tooltip = d3.select('body').append('div')
+            .attr('class', 'hidden tooltip');
+    var projection = d3.geo.mercator().scale(scale).center(center);
+    var path = d3.geo.path()
+                    .projection(projection);
+    var bounds = path.bounds(json);
+    var offset = [width ,height1/3 ];
+    projection = d3.geo.mercator().center(center)
+     .scale(scale * 49).translate(offset);
+    path = path.projection(projection);
+    var svg = d3.select(".chart2")
+               .attr("width", width)
+               .attr("height", height1+100)
+    var gchart = svg.append("g")
+
+    gchart.selectAll("path")
+      .data(json.features)
+      .enter()
+      .append("path")
+      .attr("d", path)
+      .attr("class", "name")
+      .on("mouseover", function(d) {
+            tooltip.transition()
+            .duration(200)
+            .style("opacity", .9);
+            tooltip.html(d.properties.name)
+            .style("left", (d3.event.pageX) + "px")
+            .style("top", (d3.event.pageY - 28) + "px");
+          })
+      .on("click", function(d) {
+          console.log(d.properties.dist_num)
+          Map(d.properties.dist_num)
+      })
+  });
+</script>
+
+</body>
+
+<!-- End -->
+        </center>
+            <br> 
+        </div>
+    <div id="chart1"></div>
+    <footer> &copy; CS526-Group 7</footer>
+</html>
+

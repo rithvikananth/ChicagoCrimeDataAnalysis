@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="styles.css">
+<style>
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#cssmenu:after,
+#cssmenu > ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+#cssmenu {
+  width: auto;
+  border-bottom: 3px solid darksalmon;
+  font-family: Raleway, sans-serif;
+  line-height: 1;
+}
+#cssmenu ul {
+  background: beige;
+}
+#cssmenu > ul > li {
+  float: left;
+}
+#cssmenu.align-center > ul {
+  font-size: 0;
+  text-align: center;
+}
+#cssmenu.align-center > ul > li {
+  display: inline-block;
+  float: none;
+}
+#cssmenu.align-right > ul > li {
+  float: right;
+}
+#cssmenu.align-right > ul > li > a {
+  margin-right: 0;
+  margin-left: -4px;
+}
+#cssmenu > ul > li > a {
+  z-index: 2;
+  padding: 18px 25px 12px 25px;
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #444444;
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  margin-right: -4px;
+}
+#cssmenu > ul > li.active > a,
+#cssmenu > ul > li:hover > a,
+#cssmenu > ul > li > a:hover {
+  color: #ffffff;
+}
+#cssmenu > ul > li > a:after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  width: 100%;
+  height: 120%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  content: "";
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  -webkit-transform: perspective(5px) rotateX(2deg);
+  -webkit-transform-origin: bottom;
+  -moz-transform: perspective(5px) rotateX(2deg);
+  -moz-transform-origin: bottom;
+  transform: perspective(5px) rotateX(2deg);
+  transform-origin: bottom;
+}
+#cssmenu > ul > li.active > a:after,
+#cssmenu > ul > li:hover > a:after,
+#cssmenu > ul > li > a:hover:after {
+  background: darksalmon;
+}
+
+</style>    
+   <head>
+      <meta charset="UTF-8">
+      <title>DIY</title>
+      <script src="https://www.amcharts.com/lib/4/core.js"></script>
+      <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+      <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+<!--      <script type="text/javascript" src="{{url_for('static', filename='js/plot.js')}}"></script>-->
+
+   </head>
+    
+    <div id='cssmenu'; style="padding: 0%">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<ul>
+       <li ><a href='http://127.0.0.1:5000/#dashboard'>Dashboard &emsp;<i class='fas fa-tachometer-alt'></i></a></li>
+   <li><a href="{{ url_for('Stats') }}">District Stats  &emsp;<i class='fas fa-chart-bar'></i></a></li>
+    <li  ><a href="{{ url_for('Domestic') }}">Domestic &emsp;<i class='fas fa-home'></i></a></li>
+   <li ><a href="{{ url_for('Judiciary') }}">Judiciary &emsp;<i class='fas fa-balance-scale'></i></a></li>
+    <li class='active'><a href="{{ url_for('upload_file') }}">DIY &emsp;<i class='fas fa-chalkboard-teacher'></i></a></li>
+</ul>
+</div>
+    
+    
+    
+   <body style="background-color: beige">
+       <center>
+      <h1> Do it Yourself</h1></center>
+      <form class="form-inline" method="POST" action="/plots">
+         <label for ="x_col" >Select X axis to plot </label>
+         <select id="x_col"  name="drop_x">
+            <option value="none" selected disabled hidden> Select an Option</option>
+         </select>
+         <label for ="y_col" >Select Y axis to plot </label>
+         <select id="y_col" name="drop_y" >
+            <option value="none" selected disabled hidden> Select an Option</option>
+         </select>
+         <button type = "submit" value="Plot" onclick="plot_chart() ">Plot</button>
+      </form>
+      <div id="chartdiv"></div>
+       
+       <style>
+           #chartdiv {
+               height: 400px;
+                width = 90%
+           }
+       </style>
+      <script>
+         var x_data = {{ data_x | tojson }};
+         var y_data = {{ data_y | tojson }};
+         var select_x = document.getElementById("x_col");
+         var select_y= document.getElementById("y_col");
+         for(var i = 0; i < x_data.length; i++){
+             var opt = x_data[i];
+             var el = document.createElement("option");
+             el.textContent = opt;
+             el.value = opt;
+             select_x.appendChild(el);
+         }
+         for(var i = 0; i < y_data.length; i++){
+             var opt = y_data[i];
+             var el = document.createElement("option");
+             el.textContent = opt;
+             el.value = opt;
+             select_y.appendChild(el);
+         }
+         data = {{ plot_data | tojson }};
+<!--         var select_x = document.getElementById("x_col");-->
+<!--         var x_text = select_x.options[select_x.selectedIndex].value;-->
+<!--         var select_y = document.getElementById("y_col");-->
+<!--         var y_text = select_y.options[select_y.selectedIndex].value;-->
+
+
+         <!--amcharts script-->
+         plot_chart();
+         function plot_chart(){
+
+         am4core.useTheme(am4themes_animated);
+         // Themes end
+
+         // Create chart instance
+         var chart = am4core.create("chartdiv", am4charts.XYChart);
+         console.log(data);
+
+         chart.data = data;
+
+         // Create axes
+
+         var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+         categoryAxis.dataFields.category = "name";
+         categoryAxis.renderer.grid.template.location = 0;
+         categoryAxis.renderer.minGridDistance = 30;
+         //categoryAxis.title.text=x_text;
+
+
+         var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        // valueAxis.title.text=y_text;
+         // Create series
+         var series = chart.series.push(new am4charts.ColumnSeries());
+         series.dataFields.valueY = "value";
+         series.dataFields.categoryX = "name";
+         series.name = "Visits";
+         series.columns.template.tooltipText = "{categoryX}: [bold]{valueY}[/]";
+         series.columns.template.fillOpacity = .8;
+
+         var columnTemplate = series.columns.template;
+         columnTemplate.strokeWidth = 2;
+         columnTemplate.strokeOpacity = 1;
+
+         }
+         <!---->
+
+
+      </script>
+   </body>
+</html>
